@@ -1,6 +1,7 @@
 pub use crate::network_status::NetworkStatus;
 pub use flags::Flags;
 pub use network_monitor::NetworkMonitor;
+pub use network_status::PathStatus;
 mod ffi;
 mod flags;
 mod network_monitor;
