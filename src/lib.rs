@@ -9,7 +9,14 @@ mod network_status;
 pub trait NwCallback: Send + Sync {
     fn on_status(&self, cb: NetworkStatus);
 }
-
+impl NetworkStatus {
+    pub const fn new() -> Self {
+        NetworkStatus {
+            path_status: network_status::PathStatus::Unsatisfied,
+            flags: Flags::EXPENSIVE | Flags::CONSTRAINED,
+        }
+    }
+}
 #[cfg(test)]
 mod tests {
     use std::sync::mpsc;
